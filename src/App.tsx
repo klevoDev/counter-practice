@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import "./1.jpg";
 
 function App() {
+
+  const [count, setCount] = useState(0);
+
+  const plus = () => {
+    setCount(count + 1);
+  };
+
+  const minus = () => {
+    setCount(count - 1);
+  };
+
+  const reset = () => {
+    setCount(count - count);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="main_div">
+        <div className="main_center">
+          <h1>{count}</h1>
+          <div className="button_div">
+            <button onClick={plus}>Plus</button>
+            <button onClick={minus}>Minus</button>
+            <button onClick={reset}>Reset</button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
